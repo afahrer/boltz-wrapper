@@ -1,9 +1,9 @@
 # Example written in yaml (toml and json are also acceptable)
 
 # The package identifier used by the OS. This must be unique amongst all other known packages
-id: hello-world 
+id: boltz
  # A human readable service title
-title: "Hello World"
+title: "Boltz"
 # Service version - accepts up to four digits, where the last confirms to revisions necessary for StartOS - see documentation: https://github.com/Start9Labs/emver-rs. This value will change with each release of the service. 
 version: 0.3.5
 # Release notes for the update - can be a string, paragraph or URL

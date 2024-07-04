@@ -1,11 +1,25 @@
-FROM alpine:3.20
+FROM node:20 AS builder
 
-RUN apk update
-RUN apk add --no-cache tini && \
-    rm -f /var/cache/apk/*
+WORKDIR /app
 
-ARG ARCH
-ADD ./hello-world/target/${ARCH}-unknown-linux-musl/release/hello-world /usr/local/bin/hello-world
-RUN chmod +x /usr/local/bin/hello-world
+COPY . .
+
+WORKDIR /app/boltz-web-app
+RUN npm ci
+
+ENV NETWORK=mainnet
+
+RUN npm run $NETWORK
+RUN npm run build
+
+FROM nginx:alpine AS final
+
+COPY --from=builder /app/boltz-web-app/dist /usr/share/nginx/html
+
+#COPY nginx.conf /etc/nginx/conf.d/default.conf
+
 ADD ./docker_entrypoint.sh /usr/local/bin/docker_entrypoint.sh
 RUN chmod a+x /usr/local/bin/docker_entrypoint.sh
+
+EXPOSE 80
+

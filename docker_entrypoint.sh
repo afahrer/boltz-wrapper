@@ -1,4 +1,4 @@
 #!/bin/sh
 
-printf "\n\n [i] Starting Hello World ...\n\n"
-exec tini hello-world
+printf "\n\n [i] Starting Boltz...\n\n"
+exec nginx -g "daemon off;"
