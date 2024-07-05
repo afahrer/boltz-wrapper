@@ -14,6 +14,9 @@ RUN npm run build
 
 FROM nginx:alpine AS final
 
+RUN apk add --no-cache tini && \
+    rm -f /var/cache/apk/*
+
 COPY --from=builder /app/boltz-web-app/dist /usr/share/nginx/html
 
 #COPY nginx.conf /etc/nginx/conf.d/default.conf

@@ -5,38 +5,28 @@ id: boltz
  # A human readable service title
 title: "Boltz"
 # Service version - accepts up to four digits, where the last confirms to revisions necessary for StartOS - see documentation: https://github.com/Start9Labs/emver-rs. This value will change with each release of the service. 
-version: 0.3.5
+version: 1.4.0
 # Release notes for the update - can be a string, paragraph or URL
-release-notes: |
-  Revamped for StartOS 0.3.5.x
-  - Changed version to 0.3.5
-  - Updated manifest with correct OS name, GPU acceleration support, and supported architectures.
-  - Added release and build GitHub workflows.
-  - Added log message to announce when the service is starting.
-  - Added new optimized and standardized icon.
-  - Added simple healthcheck.
-  - Updated to the latest stable Alpine-based Docker image.
-  - Updated license file with the current year.
-  - Code cleanup
+release-notes: ~
 # The type of license for the project. Include the LICENSE in the root of the project directory. A license is required for a Start9 package.
-license: MIT
+license: AGPL-3.0
 # The repository URL for the package. This repo contains the manifest file (this), any scripts necessary for configuration, backups, actions, or health checks (more below). This key must exist. But could be embedded into the source repository. 
-wrapper-repo: "https://github.com/Start9Labs/hello-world-startos"
+wrapper-repo: "https://github.com/afahrer/boltz-wrapper"
 # The original project repository URL. There is no upstream repo in this example
-upstream-repo: "https://github.com/Start9Labs/hello-world"
+upstream-repo: "https://github.com/BoltzExchange/boltz-web-app"
 # URL to the support site / channel for the project. This key can be omitted if none exists, or it can link to the original project repository issues.
-support-site: "https://docs.start9.com/"
+support-site: "https://docs.boltz.exchange/"
 # URL to the marketing site for the project. This key can be omitted if none exists, or it can link to the original project repository. 
-marketing-site: "https://start9.com/"
+marketing-site: "https://boltz.exchange/"
 # The series of commands to build the project into an s9pk for arm64/v8. In this case we are using a Makefile with the simple build command "make".
 build: ["make"]
 # Human readable descriptors for the service. These are used throughout the StartOS user interface, primarily in the marketplace.
 description:
   # This is the first description visible to the user in the marketplace.
-  short: Example service
+  short: Swap between different Bitcoin layers while staying in full control.
   # This description will display with additional details in the service's individual marketplace page
   long: |
-    Hello World is a bare-bones service that launches a web interface to say "Hello World", and nothing more.
+    Boltz is a privacy first, non-custodial bitcoin exchange built to bridge different layers of Bitcoin like the Liquid and Lightning Network. With Boltz users can seamlessly swap their bitcoin between layers, to e.g. use advanced financial products or manage liquidity of their lightning channels. Boltz Swaps are non-custodial, which means users can always rest assured to be in full control of their bitcoin throughout the entire flow of a swap.
 # These assets are static files necessary for packaging the service for Start9 (into an s9pk). Each value is a path to the specified asset. If an asset is missing from this list, or otherwise denoted, it will be defaulted to the values denoted below. 
 assets:
   # Default = LICENSE.md
@@ -85,7 +75,7 @@ hardware-requirements:
 health-checks:
   web-ui:
     name: Web Interface
-    success-message: The Hello World is accessible
+    success-message: The Boltz Web App is accessible
     type: script
 config: ~
 properties: ~
@@ -100,9 +90,8 @@ interfaces:
   # This key is the internal name that the OS will use to configure the interface
   main:
     # A human readable name for display in the UI
-    name: User Interface
-    # A descriptive description of what the interface does
-    description: A simple user interface that is expected to display the text "Hello Word"
+    name: Boltz Web App
+    description: ~
     tor-config:
     # Port mappings are from the external port to the internal container port
       port-mapping:

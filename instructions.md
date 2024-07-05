@@ -1,5 +1,8 @@
-# Instructions for Hello World
+# Welcome to Boltz exchange!
+Boltz is a privacy first, non-custodial bitcoin exchange built to bridge different layers of Bitcoin like the Liquid and Lightning Network.
 
-Instructions go here. These appear to the user in the UI on the Service page under **Instructions**.
+You can find a detailed documentation at [Boltz](https://docs.boltz.exchange/).
+## Basic Use
+1. Open Boltz by using the `LAUNCH UI` button.
+2. Swap between different Bitcoin layers while staying in full control.
 
-You are allowed to include basic [Markdown formatting](https://www.markdownguide.org/basic-syntax).
