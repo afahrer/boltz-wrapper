@@ -1,4 +1,4 @@
-# Welcome to Boltz exchange!
+# Welcome to Boltz!
 Boltz is a privacy first, non-custodial bitcoin exchange built to bridge different layers of Bitcoin like the Liquid and Lightning Network.
 
 You can find a detailed documentation at [Boltz](https://docs.boltz.exchange/).
